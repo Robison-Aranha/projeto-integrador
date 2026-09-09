@@ -274,34 +274,47 @@ header.scrolled {
 .gallery-track {
     display: flex;
     width: max-content;
-    animation: scroll 7.5s linear infinite;
+    animation: scroll 25s linear infinite;
     padding: 20px 0;
 }
 
-.gallery-track:hover {
+.gallery-track.paused {
     animation-play-state: paused;
 }
 
 .gallery-item {
-    flex: 0 0 auto;
+    flex: 0 0 25vw;
+    aspect-ratio: 4 / 5;
     overflow: hidden;
     border-radius: 8px;
+    margin: 0 10px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-    position: relative;
-    aspect-ratio: 4/5; /* Mantém as fotos padronizadas em formato retrato */
+}
+
+/* Tablets */
+@media (max-width: 768px) {
+    .gallery-item {
+        flex: 0 0 35vw;
+    }
+}
+
+/* Celulares */
+@media (max-width: 480px) {
+    .gallery-item {
+        flex: 0 0 55vw;
+    }
 }
 
 .gallery-item img {
-    width: 200px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
-    display: flex;
+    display: block;
     transition: transform 0.5s ease;
-    margin: 0 10px;
 }
 
 .gallery-item:hover img {
-    transform: scale(1.08);
+    transform: scale(1.10);
 }
 
 
